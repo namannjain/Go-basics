@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+//run command - (protoc --go-grpc_out=.  --go_out=. *.proto) for generating
+option go_package = "./";
+
+message HelloRequest {
+  string req=1;
+}
+
+message HelloResponse {
+  string res=2;
+}
+
+service Example{
+  rpc ServerReply (stream HelloRequest) returns (HelloResponse);
+}
